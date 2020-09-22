@@ -1,0 +1,313 @@
+VERSION 5.00
+Begin VB.Form frmConfig 
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "Communicator  -Asim Creations"
+   ClientHeight    =   4500
+   ClientLeft      =   1545
+   ClientTop       =   1200
+   ClientWidth     =   6945
+   Icon            =   "Config.frx":0000
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   4500
+   ScaleWidth      =   6945
+   Visible         =   0   'False
+   Begin VB.OptionButton optPulse 
+      Caption         =   "Pulse Dialing"
+      Height          =   195
+      Left            =   5250
+      TabIndex        =   25
+      Top             =   3465
+      Value           =   -1  'True
+      Width           =   1380
+   End
+   Begin VB.OptionButton optTone 
+      Caption         =   "Tone Dialing"
+      Height          =   225
+      Left            =   3675
+      TabIndex        =   24
+      Top             =   3465
+      Width           =   1275
+   End
+   Begin VB.CommandButton Command3 
+      Caption         =   "E&xit"
+      Height          =   435
+      Left            =   4305
+      TabIndex        =   22
+      Top             =   3885
+      Width           =   1485
+   End
+   Begin VB.CommandButton Command2 
+      Caption         =   "&Help"
+      Height          =   435
+      Left            =   2625
+      TabIndex        =   21
+      Top             =   3885
+      Width           =   1485
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "&<<"
+      Height          =   435
+      Left            =   945
+      TabIndex        =   20
+      Top             =   3885
+      Width           =   1485
+   End
+   Begin VB.ComboBox cboHandshaking 
+      Height          =   315
+      Left            =   5145
+      TabIndex        =   19
+      Text            =   "comRTSXOnXOff"
+      Top             =   2940
+      Width           =   1590
+   End
+   Begin VB.TextBox txtInputBSize 
+      Height          =   285
+      Left            =   5145
+      Locked          =   -1  'True
+      TabIndex        =   17
+      Top             =   2520
+      Width           =   1590
+   End
+   Begin VB.TextBox txtSendBSize 
+      Height          =   285
+      Left            =   5145
+      Locked          =   -1  'True
+      TabIndex        =   15
+      Top             =   2100
+      Width           =   1590
+   End
+   Begin VB.TextBox txtRThreshold 
+      Height          =   285
+      Left            =   5145
+      Locked          =   -1  'True
+      TabIndex        =   13
+      Top             =   1680
+      Width           =   1590
+   End
+   Begin VB.TextBox txtSThreshold 
+      Height          =   285
+      Left            =   5145
+      Locked          =   -1  'True
+      TabIndex        =   12
+      Top             =   1260
+      Width           =   1590
+   End
+   Begin VB.ComboBox cboCommPort 
+      Height          =   315
+      Left            =   5145
+      TabIndex        =   9
+      Text            =   "4"
+      Top             =   840
+      Width           =   1590
+   End
+   Begin VB.Frame fraConnectionPre 
+      Caption         =   "Connection preferences"
+      Height          =   2535
+      Left            =   210
+      TabIndex        =   1
+      Top             =   735
+      Width           =   3375
+      Begin VB.ComboBox cboBaudRates 
+         Height          =   315
+         Left            =   1260
+         TabIndex        =   26
+         Text            =   "115200"
+         Top             =   1995
+         Width           =   1590
+      End
+      Begin VB.ComboBox cboStopBits 
+         Height          =   315
+         Left            =   1260
+         TabIndex        =   7
+         Text            =   "1"
+         Top             =   1470
+         Width           =   1590
+      End
+      Begin VB.ComboBox cboParity 
+         Height          =   315
+         Left            =   1260
+         TabIndex        =   5
+         Text            =   "None"
+         Top             =   945
+         Width           =   1590
+      End
+      Begin VB.ComboBox cboDataBits 
+         Height          =   315
+         Left            =   1260
+         TabIndex        =   3
+         Text            =   "8"
+         Top             =   420
+         Width           =   1590
+      End
+      Begin VB.Label Label12 
+         Caption         =   "Baud Rates :"
+         Height          =   225
+         Left            =   210
+         TabIndex        =   27
+         Top             =   1995
+         Width           =   960
+      End
+      Begin VB.Label Label4 
+         Caption         =   "Stop Bits :"
+         Height          =   225
+         Left            =   420
+         TabIndex        =   6
+         Top             =   1470
+         Width           =   750
+      End
+      Begin VB.Label Label3 
+         Caption         =   "Parity  :"
+         Height          =   225
+         Left            =   630
+         TabIndex        =   4
+         Top             =   945
+         Width           =   540
+      End
+      Begin VB.Label Label2 
+         Caption         =   "Data Bits :"
+         Height          =   225
+         Left            =   420
+         TabIndex        =   2
+         Top             =   420
+         Width           =   750
+      End
+   End
+   Begin VB.Image Image1 
+      Height          =   540
+      Left            =   210
+      Picture         =   "Config.frx":0442
+      Stretch         =   -1  'True
+      Top             =   105
+      Width           =   645
+   End
+   Begin VB.Label Label11 
+      Caption         =   "The phone system at this location uses   :"
+      Height          =   225
+      Left            =   315
+      TabIndex        =   23
+      Top             =   3465
+      Width           =   2955
+   End
+   Begin VB.Label Label10 
+      Caption         =   "Handshaking      :"
+      Height          =   225
+      Left            =   3780
+      TabIndex        =   18
+      Top             =   2940
+      Width           =   1485
+   End
+   Begin VB.Label Label9 
+      Caption         =   "Input Buffer Size :"
+      Height          =   225
+      Left            =   3780
+      TabIndex        =   16
+      Top             =   2520
+      Width           =   1485
+   End
+   Begin VB.Label Label8 
+      Caption         =   "Send Buffer Size :"
+      Height          =   225
+      Left            =   3780
+      TabIndex        =   14
+      Top             =   2100
+      Width           =   1485
+   End
+   Begin VB.Label Label7 
+      Caption         =   "RThreshold  :"
+      Height          =   225
+      Left            =   3780
+      TabIndex        =   11
+      Top             =   1680
+      Width           =   1485
+   End
+   Begin VB.Label Label6 
+      Caption         =   "SThreshold  :"
+      Height          =   225
+      Left            =   3780
+      TabIndex        =   10
+      Top             =   1260
+      Width           =   1485
+   End
+   Begin VB.Label Label5 
+      Caption         =   "Comm Port   :"
+      Height          =   225
+      Left            =   3780
+      TabIndex        =   8
+      Top             =   840
+      Width           =   1485
+   End
+   Begin VB.Label Label1 
+      Caption         =   $"Config.frx":0884
+      Height          =   435
+      Left            =   945
+      TabIndex        =   0
+      Top             =   105
+      Width           =   5790
+   End
+End
+Attribute VB_Name = "frmConfig"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub Command1_Click()
+frmConfig.Visible = False
+frmMain.Visible = True
+
+End Sub
+
+Private Sub Command3_Click()
+End
+End Sub
+
+Private Sub Form_Load()
+'Setting Data Bits Combo box in Configuration Form
+cboDataBits.AddItem "4", 0
+cboDataBits.AddItem "5", 1
+cboDataBits.AddItem "6", 2
+cboDataBits.AddItem "7", 3
+cboDataBits.AddItem "8", 4
+'Setting Parity Combo box in Configuration Form
+cboParity.AddItem "None", 0
+cboParity.AddItem "Odd", 1
+cboParity.AddItem "Even", 2
+cboParity.AddItem "Mark", 3
+cboParity.AddItem "Space", 4
+'Setting Stop Bits Combo box in Confoguration Form
+cboStopBits.AddItem "1", 0
+cboStopBits.AddItem "1.5", 1
+cboStopBits.AddItem "2", 2
+cboStopBits.ListIndex = 0
+'Setting Baud Rates Combo Box
+cboBaudRates.AddItem "110", 0
+cboBaudRates.AddItem "300", 1
+cboBaudRates.AddItem "1200", 2
+cboBaudRates.AddItem "2400", 3
+cboBaudRates.AddItem "4800", 4
+cboBaudRates.AddItem "9600", 5
+cboBaudRates.AddItem "19200", 6
+cboBaudRates.AddItem "38400", 7
+cboBaudRates.AddItem "57600", 8
+cboBaudRates.AddItem "115200", 9
+'Setting of Comm Port Combo box
+cboCommPort.AddItem "1", 0
+cboCommPort.AddItem "2", 1
+cboCommPort.AddItem "3", 2
+cboCommPort.AddItem "4", 3
+'Setting of Text boxes
+txtSThreshold.text = "1"
+txtRThreshold.text = "1"
+txtSendBSize.text = "Default"
+txtInputBSize.text = "Default"
+'Setting of Handshaking Combo box
+cboHandshaking.AddItem "comNone", 0
+cboHandshaking.AddItem "comXOnXOff", 1
+cboHandshaking.AddItem "comRTS", 2
+cboHandshaking.AddItem "comRTSXOnXOff", 3
+End Sub
+
+
