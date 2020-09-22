@@ -1,0 +1,109 @@
+VERSION 5.00
+Object = "{56C07F60-F53D-11CF-AF7C-444553540000}#1.0#0"; "TICKER.OCX"
+Begin VB.Form frmAbout 
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "About :  ""Communicator"""
+   ClientHeight    =   4770
+   ClientLeft      =   2070
+   ClientTop       =   780
+   ClientWidth     =   5670
+   Icon            =   "frmTerminal.frx":0000
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   Picture         =   "frmTerminal.frx":0442
+   ScaleHeight     =   4770
+   ScaleWidth      =   5670
+   Begin TICKERLib.Ticker Ticker2 
+      Height          =   435
+      Left            =   315
+      TabIndex        =   1
+      Top             =   0
+      Width           =   5055
+      _Version        =   65536
+      _ExtentX        =   8916
+      _ExtentY        =   767
+      _StockProps     =   125
+      Text            =   $"frmTerminal.frx":3F4F4
+      ForeColor       =   65280
+      BackColor       =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "AvantGarde Bk BT"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BorderStyle     =   1
+      ScrollWidth     =   3
+   End
+   Begin TICKERLib.Ticker Ticker1 
+      Height          =   645
+      Left            =   315
+      TabIndex        =   0
+      Top             =   4305
+      Width           =   5055
+      _Version        =   65536
+      _ExtentX        =   8916
+      _ExtentY        =   1138
+      _StockProps     =   125
+      Text            =   $"frmTerminal.frx":3F5BE
+      ForeColor       =   255
+      BackColor       =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ScrollSpeed     =   75
+      ScrollWidth     =   3
+   End
+End
+Attribute VB_Name = "frmAbout"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+'**********************************************************************************************
+
+'This form is about the creater of the software i.e. SYED ASIM HUSSAIN ABBASI.
+'This form appears when the user click the About button on then frmMain.
+' It has a timer control and two ticker controls.
+
+'**********************************************************************************************
+Option Explicit
+Dim dummy As Integer
+Dim text$
+Dim text2$
+Private Sub Form_Load()
+'The timer control is used to continuously monitor the text that
+'is appearing in the ticker control, so that it will not change. Actually
+'I am using unregistered Ticker control, so after arbitrary time the text
+'changed to Unregistered control instead of my text.
+frmAbout.Show
+Do
+dummy = DoEvents
+text$ = text$ + Ticker1.text
+text2$ = text2$ + Ticker2.text
+If InStr(text2$, "UNREG") Or InStr(text$, "UNREG") Then
+Ticker2.text = " COMMUNICATOR: created by SYED ASIM HUSSAIN ABBASI student of B.Sc. Engg. (ELectronics) U.E.T., Lahore, Pakistan. This software is dedicated to my Father. Without whose cooperation I am nothing...       "
+Ticker1.text = "copyright 1998,  Asim Creations Co. All rights reserved. No part of this software can be reproduced in any form without the permission of SYED ASIM HUSSAIN ABBASI. 96-E-83  U.E.T., LHR, PAKISTAN. E-Mail:abfdani@pol.com.pk.             "
+Exit Do
+ElseIf frmMain.Visible = True Then
+Exit Do
+End If
+Loop
+
+
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+frmMain.Visible = True
+End Sub
+
